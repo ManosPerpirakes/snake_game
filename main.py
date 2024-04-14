@@ -52,6 +52,10 @@ while closeall != True:
                                 j.y = yofpreviousrect
                                 xofpreviousrect = xofthisrect
                                 yofpreviousrect = yofthisrect
+                            if head.colliderect(food):
+                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
+                                food.x = (randint(0, 149) * 10)
+                                food.y = (randint(0, 74) * 10)
                         move_up = True
                         move_left = False
                         move_down = False
@@ -68,6 +72,10 @@ while closeall != True:
                                 j.y = yofpreviousrect
                                 xofpreviousrect = xofthisrect
                                 yofpreviousrect = yofthisrect
+                            if head.colliderect(food):
+                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
+                                food.x = (randint(0, 149) * 10)
+                                food.y = (randint(0, 74) * 10)
                         move_up = False
                         move_left = True
                         move_down = False
@@ -84,6 +92,10 @@ while closeall != True:
                                 j.y = yofpreviousrect
                                 xofpreviousrect = xofthisrect
                                 yofpreviousrect = yofthisrect
+                            if head.colliderect(food):
+                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
+                                food.x = (randint(0, 149) * 10)
+                                food.y = (randint(0, 74) * 10)
                         move_up = False
                         move_left = False
                         move_down = True
@@ -100,6 +112,10 @@ while closeall != True:
                                 j.y = yofpreviousrect
                                 xofpreviousrect = xofthisrect
                                 yofpreviousrect = yofthisrect
+                            if head.colliderect(food):
+                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
+                                food.x = (randint(0, 149) * 10)
+                                food.y = (randint(0, 74) * 10)
                         move_up = False
                         move_left = False
                         move_down = False
