@@ -2,6 +2,21 @@ from pygame import *
 from random import randint
 init()
 
+def movement():
+    xofpreviousrect = head.x
+    yofpreviousrect = head.y
+    for j in body:
+        xofthisrect = j.x
+        yofthisrect = j.y
+        j.x = xofpreviousrect
+        j.y = yofpreviousrect
+        xofpreviousrect = xofthisrect
+        yofpreviousrect = yofthisrect
+    if head.colliderect(food):
+        body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
+        food.x = (randint(0, 149) * 10)
+        food.y = (randint(0, 74) * 10)
+
 closeall = False
 while closeall != True:
     w = display.set_mode((1500, 750))
@@ -43,19 +58,7 @@ while closeall != True:
                     if (i.key == K_w or i.key == K_UP) and move_down == False:
                         if move_up == False:
                             head.y -= 10
-                            xofpreviousrect = head.x
-                            yofpreviousrect = head.y
-                            for j in body:
-                                xofthisrect = j.x
-                                yofthisrect = j.y
-                                j.x = xofpreviousrect
-                                j.y = yofpreviousrect
-                                xofpreviousrect = xofthisrect
-                                yofpreviousrect = yofthisrect
-                            if head.colliderect(food):
-                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
-                                food.x = (randint(0, 149) * 10)
-                                food.y = (randint(0, 74) * 10)
+                            movement()
                         move_up = True
                         move_left = False
                         move_down = False
@@ -63,19 +66,7 @@ while closeall != True:
                     if (i.key == K_a or i.key == K_LEFT) and move_right == False:
                         if move_left == False:
                             head.x -= 10
-                            xofpreviousrect = head.x
-                            yofpreviousrect = head.y
-                            for j in body:
-                                xofthisrect = j.x
-                                yofthisrect = j.y
-                                j.x = xofpreviousrect
-                                j.y = yofpreviousrect
-                                xofpreviousrect = xofthisrect
-                                yofpreviousrect = yofthisrect
-                            if head.colliderect(food):
-                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
-                                food.x = (randint(0, 149) * 10)
-                                food.y = (randint(0, 74) * 10)
+                            movement()
                         move_up = False
                         move_left = True
                         move_down = False
@@ -83,19 +74,7 @@ while closeall != True:
                     if (i.key == K_s or i.key == K_DOWN) and move_up == False:
                         if move_down == False:
                             head.y += 10
-                            xofpreviousrect = head.x
-                            yofpreviousrect = head.y
-                            for j in body:
-                                xofthisrect = j.x
-                                yofthisrect = j.y
-                                j.x = xofpreviousrect
-                                j.y = yofpreviousrect
-                                xofpreviousrect = xofthisrect
-                                yofpreviousrect = yofthisrect
-                            if head.colliderect(food):
-                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
-                                food.x = (randint(0, 149) * 10)
-                                food.y = (randint(0, 74) * 10)
+                            movement()
                         move_up = False
                         move_left = False
                         move_down = True
@@ -103,19 +82,7 @@ while closeall != True:
                     if (i.key == K_d or i.key == K_RIGHT) and move_left == False:
                         if move_right == False:
                             head.x += 10
-                            xofpreviousrect = head.x
-                            yofpreviousrect = head.y
-                            for j in body:
-                                xofthisrect = j.x
-                                yofthisrect = j.y
-                                j.x = xofpreviousrect
-                                j.y = yofpreviousrect
-                                xofpreviousrect = xofthisrect
-                                yofpreviousrect = yofthisrect
-                            if head.colliderect(food):
-                                body.append(rect.Rect(xofpreviousrect, yofpreviousrect, 10, 10))
-                                food.x = (randint(0, 149) * 10)
-                                food.y = (randint(0, 74) * 10)
+                            movement()
                         move_up = False
                         move_left = False
                         move_down = False
